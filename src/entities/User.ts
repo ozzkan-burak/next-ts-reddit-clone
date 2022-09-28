@@ -2,6 +2,9 @@ import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 
 @Entity('users')
 export class User {
+    save() {
+      throw new Error("Method not implemented.");
+    }
     constructor(user: Partial<User>) {
         super()
         Object.assign(this, user);
@@ -10,10 +13,10 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({unique: true})
     email: string;
 
-    @Column()
+    @Column({unique: true})
     username: string;
 
     @Column()
