@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 app.get('/', (req, res)=> res.send('Hello World'));
+app.use('/api/auth', authRoutes);
 
 const PORT = 5001
 
