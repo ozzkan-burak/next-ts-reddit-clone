@@ -9,11 +9,12 @@ const register = async (req: Register, res: Response) => {
 
     // TODO Create user
     const user = new User({email, username, password});
+    await user.save();
     // TODO Return the user
-    
+    return res.jsom(user);
   } catch (error) {
-    
-  }
+    console.log(error);
+    return res.status(500).json(error);
 };
 
 const router = Router();
