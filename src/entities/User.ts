@@ -1,10 +1,7 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, BaseEntity} from "typeorm";
 
 @Entity('users')
-export class User {
-    save() {
-      throw new Error("Method not implemented.");
-    }
+export class User extends BaseEntity {
     constructor(user: Partial<User>) {
         super()
         Object.assign(this, user);
